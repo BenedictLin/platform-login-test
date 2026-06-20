@@ -13,7 +13,7 @@ SWAG 平台 QA 工程師面試作業 - 第二題（加分項）
 ### 步驟 1：Clone 專案
 ```bash
 git clone https://github.com/BenedictLin/swag-login-test.git
-cd SWAG-QA-
+cd swag-login-test
 ```
 
 ### 步驟 2：安裝依賴
