@@ -57,6 +57,9 @@ def test_login_success():
     """
     【加分題 - 正向測試】完整 UI 自動化表單互動 + 智能等待手動輔助過碼
     """
+    print("\n" + "="*70)
+    print("【測試開始】正向測試：帳號密碼正確")
+    print("="*70)
     username = os.getenv("SWAG_USERNAME")
     password = os.getenv("SWAG_PASSWORD")
 
@@ -108,6 +111,9 @@ def test_login_fail():
     """
     【加分題 - 反向測試】填入錯誤密碼，手動過碼後，驗證前端雙重錯誤提示（表單紅字/下方彈窗）
     """
+    print("\n" + "="*70)
+    print("【測試開始】反向測試：密碼錯誤")
+    print("="*70)
     username = os.getenv("SWAG_USERNAME")
     wrong_password = "IncorrectPassword123"
 
