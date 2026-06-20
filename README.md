@@ -38,34 +38,40 @@
 - Python 3.10+
 - pip 套件管理
 
-### 依賴套件
+### 步驟 1：Clone 專案
 ```bash
-pip install playwright pytest python-dotenv requests
+git clone https://github.com/BenedictLin/SWAG-QA-.git
+cd SWAG-QA-
+```
+
+### 步驟 2：安裝依賴
+```bash
+pip install -r requirements.txt
 playwright install chromium
+```
+
+### 步驟 3：設定環境變數
+
+複製 `.env.example` 為 `.env`，並填入你的測試帳號和密碼：
+
+```bash
+SWAG_USERNAME=your_email@example.com
+SWAG_PASSWORD=your_password
 ```
 
 ---
 
 ## 🚀 快速開始
 
-### 1. 環境變數設置
-
-在專案根目錄建立 `.env` 檔案：
-
-```
-SWAG_USERNAME="你的測試帳號"
-SWAG_PASSWORD="你的測試密碼"
-```
-
-### 2. 執行測試
+### 步驟 4：執行測試
 
 ```bash
 # 執行全量測試（正向 + 反向案例）
-pytest test_login_gemini.py -v -s
+pytest test_login.py
 
 # 執行特定測試
-pytest test_login_gemini.py::test_login_success -v -s
-pytest test_login_gemini.py::test_login_fail -v -s
+pytest test_login.py::test_login_success -v -s
+pytest test_login.py::test_login_fail -v -s
 ```
 
 ### 3. 測試流程
