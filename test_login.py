@@ -1,9 +1,21 @@
 import os
-import sys
+import pytest
+from pathlib import Path
 from dotenv import load_dotenv
 from playwright.sync_api import sync_playwright, expect
 
+# 檢查 .env 檔案是否存在
+if not Path('.env').exists():
+    pytest.fail("❌ 未偵測到 .env 環境檔案\n請先複製 .env.example 為 .env，並填入帳號密碼")
+
 load_dotenv()
+
+# 檢查必要的環境變數
+username = os.getenv("SWAG_USERNAME")
+password = os.getenv("SWAG_PASSWORD")
+
+if not username or not password:
+    pytest.fail("❌ .env 檔案中缺少 SWAG_USERNAME 或 SWAG_PASSWORD")
 
 BASE_URL = "https://swag.live/?lang=zh-TW"
 
@@ -88,7 +100,7 @@ def test_login_success():
         print("請在瀏覽器中『手動完成滑塊拼圖驗證』")
         print("測試有 45 秒等待時間，請在此期間完成驗證")
         print("="*70 + "\n")
-        sys.stdout.flush()
+        
         
         try:
             # 智能監聽策略：避免 sleep 硬等，動態監聽大頭貼元件現形
@@ -140,7 +152,7 @@ def test_login_fail():
         print("請在瀏覽器中『手動完成滑塊拼圖驗證』")
         print("測試有 45 秒等待時間，請在此期間完成驗證")
         print("="*70 + "\n")
-        sys.stdout.flush()
+        
         
         try:
             # 智能監聽策略：手動過完驗證後，等待前端非同步渲染錯誤訊息
