@@ -1,6 +1,6 @@
-# SWAG 平台自動化登入測試
+# 平台自動化登入測試
 
-SWAG 平台 QA 工程師面試作業 - 第二題（加分項）
+平台 QA 工程師面試作業 - 第二題（加分項）
 
 ## 🛠️ 技術棧
 
@@ -12,8 +12,8 @@ SWAG 平台 QA 工程師面試作業 - 第二題（加分項）
 
 ### 步驟 1：Clone 專案
 ```bash
-git clone https://github.com/BenedictLin/swag-login-test.git
-cd swag-login-test
+git clone https://github.com/BenedictLin/platform-login-test.git
+cd platform-login-test
 ```
 
 ### 步驟 2：安裝依賴
@@ -44,7 +44,7 @@ pytest test_login.py::test_login_fail -v -s
 
 ### 為什麼採用 Hybrid 混合式方案？
 
-初期嘗試了**憑證注入方案**（備份 token 到 auth.json → 在新瀏覽器注入），成功儲存 token，但刷新頁面後前端自動清除 token。推測 SWAG 前端有安全驗證機制，會在檢測到異常登入環境時清除憑證。
+初期嘗試了**憑證注入方案**（備份 token 到 auth.json → 在新瀏覽器注入），成功儲存 token，但刷新頁面後前端自動清除 token。推測前端有安全驗證機制，會在檢測到異常登入環境時清除憑證。
 
 因此改採 **Hybrid 混合策略**：
 - **Playwright 自動化**：填寫帳號、密碼並送出
